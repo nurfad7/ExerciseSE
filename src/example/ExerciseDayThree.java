@@ -63,12 +63,12 @@ public class ExerciseDayThree {
         System.out.println("Please input text to do anagram check on (2): ");
         stringProcessor.setSecondStringToProcess(scanner.nextLine());
         System.out.println(stringProcessor.isAnagram());
-        //#10 find the second smallest element in an array
+        //#10 find the second-smallest element in an array
         int[] integerArrayToProcess = {5, 3, 8, 1, 2, 9};
         arrayProcessor.setArrayNumberToProcess(integerArrayToProcess);
-        System.out.println("the second largest among "
+        System.out.println("the second-smallest among "
                 + Arrays.toString(integerArrayToProcess) + " is "
-                + arrayProcessor.getSecondLargest());
+                + arrayProcessor.getSecondSmallest());
         //close the scanner
         scanner.close();
     }

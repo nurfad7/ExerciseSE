@@ -27,23 +27,28 @@ public class ArrayProcessor {
         return this.arrayNumberToProcess;
     }
 
-    public int getSecondLargest() {
-        if(this.arrayNumberToProcess.length == 0) {
-            System.out.println("Array is empty");
-            return 0;
+    public int getSecondSmallest() {
+        if (this.arrayNumberToProcess.length < 2) {
+            System.out.println("Array does not contain enough elements");
+            return Integer.MAX_VALUE;
         }
-        int largestNumber = 0;
-        int secondLargestNumber = 0;
-        for (int i = 0; i < this.arrayNumberToProcess.length - 1; i++) {
-            if (this.arrayNumberToProcess[i] < largestNumber) {
-                if (this.arrayNumberToProcess[i] >= secondLargestNumber) {
-                    secondLargestNumber = this.arrayNumberToProcess[i];
+
+        int smallestNumber = Integer.MAX_VALUE;
+        int secondSmallestNumber = Integer.MAX_VALUE;
+
+        for (int i = 0; i < this.arrayNumberToProcess.length; i++) {
+            if (this.arrayNumberToProcess[i] > smallestNumber) {
+                if (this.arrayNumberToProcess[i] <= secondSmallestNumber) {
+                    secondSmallestNumber = this.arrayNumberToProcess[i];
                 }
             } else {
-                secondLargestNumber = largestNumber;
-                largestNumber = this.arrayNumberToProcess[i];
+                secondSmallestNumber = smallestNumber;
+                smallestNumber = this.arrayNumberToProcess[i];
             }
         }
-        return secondLargestNumber;
+        if (secondSmallestNumber == Integer.MAX_VALUE) {
+            System.out.println("No second-smallest number found");
+        }
+        return secondSmallestNumber;
     }
 }

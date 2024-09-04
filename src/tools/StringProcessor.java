@@ -41,8 +41,13 @@ public class StringProcessor {
     }
 
     public boolean isAnagram() {
+        if (this.stringToProcess.length() != this.secondStringToProcess.length()){
+            return false;
+        }
+
         this.stringToProcess = this.stringToProcess.toLowerCase();
         this.secondStringToProcess = this.secondStringToProcess.toLowerCase();
+
         for (int i = 0; i <= this.stringToProcess.length() - 1; i++) {
             String currentChar = Character.toString(this.stringToProcess.charAt(i));
             String replacedString = this.secondStringToProcess.replaceFirst(currentChar, "");
@@ -50,6 +55,30 @@ public class StringProcessor {
                 return false;
             } else {
                 this.secondStringToProcess = replacedString;
+            }
+        }
+        return true;
+    }
+
+    public boolean isAnagram2() {
+        this.stringToProcess = this.stringToProcess.toLowerCase();
+        this.secondStringToProcess = this.secondStringToProcess.toLowerCase();
+
+        if (this.stringToProcess.length() != this.secondStringToProcess.length()){
+            return false;
+        }
+
+        int[] charCount1 = new int[256];
+        int[] charCount2 = new int[256];
+
+        for (int i = 0; i < this.stringToProcess.length(); i++) {
+            charCount1[this.stringToProcess.charAt(i)]++;
+            charCount2[this.secondStringToProcess.charAt(i)]++;
+        }
+
+        for (int i = 0; i < 256; i++) {
+            if (charCount1[i] != charCount2[i]) {
+                return false;
             }
         }
         return true;
