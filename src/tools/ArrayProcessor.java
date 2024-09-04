@@ -40,8 +40,8 @@ public class ArrayProcessor {
                     secondLargestNumber = this.arrayNumberToProcess[i];
                 }
             } else {
-                largestNumber = this.arrayNumberToProcess[i];
                 secondLargestNumber = largestNumber;
+                largestNumber = this.arrayNumberToProcess[i];
             }
         }
         return secondLargestNumber;
