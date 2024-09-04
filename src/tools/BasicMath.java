@@ -40,7 +40,8 @@ public class BasicMath {
 
     public int findLargest() {
         if (this.arrayNumberToProcess == null || this.arrayNumberToProcess.length == 0) {
-            throw new IllegalArgumentException("Array is empty or null");
+            System.out.println("Array is empty or null");
+            return 0;
         }
         int largestNumber = this.arrayNumberToProcess[0];
         for (int i = 1; i < this.arrayNumberToProcess.length; i++) {
@@ -59,19 +60,19 @@ public class BasicMath {
             try {
                 firstNumber = Integer.parseInt(operationsArray[0]);
                 secondNumber = Integer.parseInt(operationsArray[2]);
-                result = switch (operationsArray[1]) {
-                    case "+" -> firstNumber + secondNumber;
-                    case "-" -> firstNumber - secondNumber;
-                    case "/" -> firstNumber / secondNumber;
-                    case "*" -> firstNumber * secondNumber;
-                    case "%" -> firstNumber % secondNumber;
-                    default -> throw new IllegalArgumentException("Can't perform complex operation");
-                };
+                switch (operationsArray[1]) {
+                    case "+" : result = firstNumber + secondNumber; break;
+                    case "-" : result = firstNumber - secondNumber; break;
+                    case "/" : result = firstNumber / secondNumber; break;
+                    case "*" : result = firstNumber * secondNumber; break;
+                    case "%" : result = firstNumber % secondNumber; break;
+                    default : System.out.println("Can't perform complex operation"); break;
+                }
             } catch (NumberFormatException e) {
                 System.out.println("Caught exception: " + e.getMessage());
             }
         } else {
-            throw new IllegalArgumentException("Can't perform complex operation");
+            System.out.println("Can't perform complex operation");
         }
         return result;
     }
