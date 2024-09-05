@@ -2,9 +2,7 @@ package example;
 
 import tools.LoopAndCondition;
 
-import java.util.InputMismatchException;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class ExerciseDayFour {
     Scanner scanner = new Scanner(System.in);
@@ -28,6 +26,22 @@ public class ExerciseDayFour {
                 patternWasNotMade = !loopAndCondition.starTrianglePatternWasMade();
             };
             //#3 reads n number of input from scanner
+            List<Integer> list = new ArrayList<>();
+            String input;
+            scanner.nextLine();
+            do {
+                System.out.print("Enter a number or 'x' to exit: ");
+                input = scanner.nextLine();
+                try {
+                    if(!input.equalsIgnoreCase("x")) {
+                        int numberToAdd = Integer.parseInt(input);
+                        list.add(numberToAdd);
+                    }
+                } catch (NumberFormatException e) {
+                    System.out.println("Please enter a valid number!");
+                }
+            } while (!input.equalsIgnoreCase("x"));
+            System.out.println("The number list inputted: " + list.toString());
             //#4 simple number guessing game
             boolean theGuessWasEnd = false;
             Random random = new Random();
