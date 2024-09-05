@@ -71,8 +71,6 @@ public class ExerciseDayThree {
             System.out.println("the second-smallest among "
                     + Arrays.toString(integerArrayToProcess) + " is "
                     + arrayProcessor.getSecondSmallest());
-            //close the scanner
-            scanner.close();
         } catch (InputMismatchException e) {
             System.out.println("Invalid input");
         } finally {

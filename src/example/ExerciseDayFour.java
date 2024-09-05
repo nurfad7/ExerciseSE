@@ -26,6 +26,13 @@ public class ExerciseDayFour {
                 loopAndCondition.setNumberToProcess(numberToMultiply);
                 patternWasNotMade = !loopAndCondition.starTrianglePatternWasMade();
             };
+            //#3 reads n number of input from scanner
+            //#4 simple number guessing game
+            //#5 swap the case of each character from string
+            scanner.nextLine();
+            System.out.print("Please input string to swap case: ");
+            loopAndCondition.setStringToProcess(scanner.nextLine());
+            System.out.print(loopAndCondition.swapTheCase());
         } catch (InputMismatchException e) {
             System.out.println("Invalid input");
         } finally {
