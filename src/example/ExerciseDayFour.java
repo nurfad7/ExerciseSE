@@ -3,6 +3,7 @@ package example;
 import tools.LoopAndCondition;
 
 import java.util.InputMismatchException;
+import java.util.Random;
 import java.util.Scanner;
 
 public class ExerciseDayFour {
@@ -28,6 +29,27 @@ public class ExerciseDayFour {
             };
             //#3 reads n number of input from scanner
             //#4 simple number guessing game
+            boolean theGuessWasEnd = false;
+            Random random = new Random();
+            int randomIntInRange = random.nextInt(101);
+            int guessAttempt = 0;
+            while (!theGuessWasEnd) {
+                if(guessAttempt == 10) {
+                    System.out.print("It's hard is it? Do you want to continue to guess?(y/n)");
+                    if (scanner.nextLine().equalsIgnoreCase("y")) {
+                        System.out.print("Thanks for playing");
+                        System.out.print("The Random Number is " + randomIntInRange);
+                        break;
+                    }
+                    guessAttempt = 0;
+                }
+                System.out.print("Please input number you guess: ");
+                int guessedNumber = scanner.nextInt();
+                loopAndCondition.setNumberToProcess(randomIntInRange);
+                loopAndCondition.setSecondNumberToProcess(guessedNumber);
+                theGuessWasEnd = loopAndCondition.theGuessIsRight();
+                guessAttempt++;
+            };
             //#5 swap the case of each character from string
             scanner.nextLine();
             System.out.print("Please input string to swap case: ");

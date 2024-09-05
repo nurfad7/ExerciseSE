@@ -2,10 +2,15 @@ package tools;
 
 public class LoopAndCondition {
     private int n;
+    private int o;
     private String stringToProcess;
 
     public void setNumberToProcess(int n) {
         this.n = n;
+    }
+
+    public void setSecondNumberToProcess(int o) {
+        this.o = o;
     }
 
     public void setStringToProcess(String stringToProcess) {
@@ -45,8 +50,16 @@ public class LoopAndCondition {
     }
 
     public boolean theGuessIsRight() {
-
-        return true;
+        if (this.n > this.o) {
+            System.out.println("Too Low");
+            return false;
+        } else if (this.n < this.o) {
+            System.out.println("Too High");
+            return false;
+        } else {
+            System.out.println("You're right. Congrats!!");
+            return true;
+        }
     }
 
     public String swapTheCase() {
