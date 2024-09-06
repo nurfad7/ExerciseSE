@@ -23,9 +23,9 @@ public class MethodsExercise {
 
     public static int[] eliminateOddNumber(int[] arrayToFilter) {
         List<Integer> EvenNumberList = new ArrayList<>();
-        for (int i : arrayToFilter) {
-            if (arrayToFilter[i-1] % 2 == 0) {
-                EvenNumberList.add(arrayToFilter[i-1]);
+        for (int n : arrayToFilter) {
+            if (n % 2 == 0) {
+                EvenNumberList.add(n);
             }
         }
         return EvenNumberList.stream()
@@ -34,8 +34,8 @@ public class MethodsExercise {
     }
 
     public static void loopNumberAndReplace(int n) {
-        for(int i = 1; i <= n; i++) {
-            if(i % 15 == 0) {
+        for (int i = 1; i <= n; i++) {
+            if (i % 15 == 0) {
                 System.out.print("FizzBuzz");
             } else if(i % 5 == 0) {
                 System.out.print("Buzz");
@@ -44,9 +44,36 @@ public class MethodsExercise {
             } else {
                 System.out.print(i);
             }
-            if(i < n) {
+            if (i < n) {
                 System.out.print(", ");
             }
         }
+        System.out.println(" ");
+    }
+
+    public static void searchTheAddUp(int[] numberBase, int n) {
+        boolean isExist = false;
+        for(int i = 0; i < numberBase.length; i++) {
+            int secondNumber = n - numberBase[i];
+            int indexOfSecondNumber = searchTheNumber(numberBase, secondNumber);
+            if (indexOfSecondNumber != -1) {
+                System.out.println("[" + (i) + "," + (indexOfSecondNumber) + "]");
+                isExist = true;
+                break;
+            }
+        }
+        if(!isExist) {
+            System.out.println("No pair exist");
+        }
+
+    }
+
+    private static int searchTheNumber(int[] numbers, int numberToSearch) {
+        for(int i = 0; i < numbers.length; i++) {
+            if(numbers[i] == numberToSearch) {
+                return i;
+            }
+        }
+        return -1;
     }
 }

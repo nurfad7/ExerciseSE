@@ -27,6 +27,10 @@ public class ExerciseDayFive {
             //#4 function that can loop the number of times according to the input
             System.out.print("Enter n to loop: ");
             MethodsExercise.loopNumberAndReplace(scanner.nextInt());
+            //#5 return indices of the two numbers such that they add up to target
+            int[] arrayOfIntegerToAdd = {2,7,11,15};
+            System.out.print("Enter number to be a target: ");
+            MethodsExercise.searchTheAddUp(arrayOfIntegerToAdd, scanner.nextInt());
         } catch (InputMismatchException e) {
             System.out.println("Invalid input");
         } finally {
