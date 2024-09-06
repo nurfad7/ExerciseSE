@@ -17,9 +17,13 @@ public class ExerciseDayFive {
             System.out.print("Type the currency target (EUR, GBP, or JPY): ");
             String targetCurrency = scanner.nextLine().toUpperCase();
             double convertedAmount = MethodsExercise.convertCurrency(amount, targetCurrency);
-            System.out.print(amount + " USD = "
+            System.out.println(amount + " USD = "
                     + String.format("%.2f", convertedAmount) + " "
                     + targetCurrency);
+            //#3 remove all odd numbers in an array
+            int[] arrayToDoOddEliminateOn = {1,2,3,4,5,6,7,8,9,10};
+            int[] filteredArray = MethodsExercise.eliminateOddNumber(arrayToDoOddEliminateOn);
+            System.out.println(Arrays.toString(filteredArray));
         } catch (InputMismatchException e) {
             System.out.println("Invalid input");
         } finally {

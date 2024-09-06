@@ -1,6 +1,8 @@
 package tools;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class MethodsExercise {
     private static final HashMap<String, Double> exchangeRates = new HashMap<>();
@@ -18,5 +20,17 @@ public class MethodsExercise {
     public static double convertCurrency(double amount, String targetCurrency) {
         System.out.print(getExchangeRate("USD_TO_JPY"));
         return getExchangeRate("USD_TO_" + targetCurrency) * amount;
+    }
+
+    public static int[] eliminateOddNumber(int[] arrayToFilter) {
+        List<Integer> EvenNumberList = new ArrayList<>();
+        for (int i : arrayToFilter) {
+            if (arrayToFilter[i-1] % 2 == 0) {
+                EvenNumberList.add(arrayToFilter[i-1]);
+            }
+        }
+        return EvenNumberList.stream()
+                .mapToInt(Integer::intValue)
+                .toArray();
     }
 }
