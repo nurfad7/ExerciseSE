@@ -24,6 +24,9 @@ public class ExerciseDayFive {
             int[] arrayToDoOddEliminateOn = {1,2,3,4,5,6,7,8,9,10};
             int[] filteredArray = MethodsExercise.eliminateOddNumber(arrayToDoOddEliminateOn);
             System.out.println(Arrays.toString(filteredArray));
+            //#4 function that can loop the number of times according to the input
+            System.out.print("Enter n to loop: ");
+            MethodsExercise.loopNumberAndReplace(scanner.nextInt());
         } catch (InputMismatchException e) {
             System.out.println("Invalid input");
         } finally {

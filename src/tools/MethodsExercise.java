@@ -18,7 +18,6 @@ public class MethodsExercise {
     }
 
     public static double convertCurrency(double amount, String targetCurrency) {
-        System.out.print(getExchangeRate("USD_TO_JPY"));
         return getExchangeRate("USD_TO_" + targetCurrency) * amount;
     }
 
@@ -32,5 +31,22 @@ public class MethodsExercise {
         return EvenNumberList.stream()
                 .mapToInt(Integer::intValue)
                 .toArray();
+    }
+
+    public static void loopNumberAndReplace(int n) {
+        for(int i = 1; i <= n; i++) {
+            if(i % 15 == 0) {
+                System.out.print("FizzBuzz");
+            } else if(i % 5 == 0) {
+                System.out.print("Buzz");
+            } else if(i % 3 == 0) {
+                System.out.print("Fizz");
+            } else {
+                System.out.print(i);
+            }
+            if(i < n) {
+                System.out.print(", ");
+            }
+        }
     }
 }
