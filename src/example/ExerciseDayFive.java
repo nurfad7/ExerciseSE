@@ -9,7 +9,7 @@ public class ExerciseDayFive {
     public void result(){
         try{
             //#1
-
+            letsPlayGuessWordGame();
             //#2 currency conversion
             System.out.print("Enter the amount to convert (USD): ");
             double amount = scanner.nextInt();
@@ -36,5 +36,33 @@ public class ExerciseDayFive {
         } finally {
             scanner.close();
         }
+    }
+
+    private void letsPlayGuessWordGame() {
+        String randomWord = MethodsExercise.getRandomWords();
+        String hiddenWord = "_".repeat(randomWord.length());
+        System.out.println("Let's play guess fruit name!!");
+        boolean isGuessed = false;
+        do {
+            System.out.print("Fruit name: ");
+            System.out.println(hiddenWord);
+            System.out.print("Type your guess: ");
+            String input = scanner.nextLine();
+            while (input.length() != 1 || !Character.isLetter(input.charAt(0))) {
+                System.out.println("Invalid input. Please type a single alphabetic character only:");
+                input = scanner.nextLine();
+            }
+            String updatedHiddenWord = MethodsExercise.updateHiddenWord(input, hiddenWord, randomWord);
+            if (updatedHiddenWord.equals(randomWord)) {
+                System.out.println("Congratulation! You've guessed the word. It's " + randomWord);
+                isGuessed = true;
+            } else if (updatedHiddenWord.equals(hiddenWord)) {
+                System.out.println("Incorrect! Please try again.");
+            } else {
+                hiddenWord = updatedHiddenWord;
+                System.out.println("Correct! guess some more.");
+            }
+            System.out.println(" ");
+        } while(!isGuessed);
     }
 }

@@ -3,6 +3,7 @@ package tools;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Random;
 
 public class MethodsExercise {
     private static final HashMap<String, Double> exchangeRates = new HashMap<>();
@@ -75,5 +76,24 @@ public class MethodsExercise {
             }
         }
         return -1;
+    }
+
+    public static String getRandomWords(){
+        String[] words = {"watermelon", "apple", "lemon", "orange", "mango"};
+        Random random = new Random();
+        int randomInt = random.nextInt(5);
+        return words[randomInt];
+    }
+
+    public static String updateHiddenWord(String guessChar,
+                                          String hiddenWord,
+                                          String answer) {
+        StringBuilder updatedHiddenWord = new StringBuilder(hiddenWord);
+        for (int i = 0; i < answer.length(); i++) {
+            if (answer.charAt(i) == guessChar.toLowerCase().charAt(0)) {
+                updatedHiddenWord.setCharAt(i, guessChar.toLowerCase().charAt(0));
+            }
+        }
+        return updatedHiddenWord.toString();
     }
 }
